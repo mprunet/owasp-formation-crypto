@@ -1,0 +1,62 @@
+Montrer la classe importée : CipherUtilSecret
+-- Cle non genenree
+-- AES
+-- Executer la classe
+
+
+Se connecter : 
+http://localhost:8080/swagger-ui.html -> image-demo-controller
+Chiffrer l'image bonjour.bmp
+Montrer ImageDemoController
+
+Expliquer le CBC 
+Refaire la demo de l'image
+
+
+Prime d'interessement faire la demo
+1 - Le chef chiffre le fichier, l'envoi a son salarie pour integration
+2 - Le salarie envoi le fichier au systeme central
+
+./encrypt.sh prime.txt
+
+
+
+
+
+-- Chiffrement ligne par ligne
+./encrypt.sh prime.txt
+Montrer changement => Confientialite
+Demo mode normal
+./send-to-bank.sh prime.enc
+
+. ip.sh
+
+Demo dechiffrement : 
+./padding.sh VnBMfqwO8UI3mKEzqAP7ClghKoUyvmsyATPBNsgNGCfOzWBK3ahVzlkY6DsOYIkOugwi55tTVmasL05MUXcwRq_9C3BMjUZAYa7PS0GqKls=
+
+Demo Alteration : 
+
+echo "4397C4E131CB2EA3BF2A35B67429D267" | xxd -p -r | base64
+ou 
+./hex2base64.sh AC432FD7EDC2F8159B4874BF6AE6FFDB
+
+
+
+
+Visualisation des champs : 
+cat *.txt
+
+
+Chiffrement de tous les champs
+for f in `ls *.txt` ; do ./cipher-cbc-fixed-iv.sh $f > ${f%.txt}.cbc ; done
+for f in `ls *.txt` ; do ./cipher-gcm-fixed-iv.sh $f > ${f%.txt}.gcm ; done
+
+for f in `ls *.gcm` ; do echo $f $(xxd -p -c 1000 $f) ; done
+
+xxd -p -c 1000 champ2.gcm
+
+
+
+
+
+

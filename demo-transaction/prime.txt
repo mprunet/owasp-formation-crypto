@@ -1,0 +1,3 @@
+Montant;Salarie;Commentaire
+15.00;Michel PRUNET;Demo mauvaise
+12000;PDG; A bien travaille
