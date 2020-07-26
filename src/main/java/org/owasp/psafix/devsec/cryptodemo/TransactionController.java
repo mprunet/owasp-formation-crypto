@@ -42,17 +42,20 @@ public class TransactionController {
     public byte[] record(String transaction) throws IOException, NoSuchPaddingException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         PrintWriter pw = new PrintWriter(bos);
+        int nbErreur = 0;
         try {
             byte[] uncipher = cipherCbc.uncipher(Base64Utils.decodeFromUrlSafeString(transaction));
             String data = new String(uncipher, StandardCharsets.UTF_8);
             String[] csv = data.split(";");
             if (csv.length == 3) {
-                pw.println(String.format("Transfert de %s sur le compte de %s (%s)",csv[0],csv[1],csv[2]));
+                System.out.println(String.format("Transfert de %s sur le compte de %s (%s)",csv[0],csv[1],csv[2]));
             } else {
-                pw.println("Donnee invalide " + data);
+                System.out.println("Donnee invalide " + data);
             }
+            pw.println("Prime intégrée");
         } catch (Exception ex) {
             ex.printStackTrace(pw);
+            System.out.println("Donnee invalide " + transaction);
         }
         pw.flush();
         return bos.toByteArray();

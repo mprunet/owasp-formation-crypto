@@ -17,10 +17,7 @@ Prime d'interessement faire la demo
 1 - Le chef chiffre le fichier, l'envoi a son salarie pour integration
 2 - Le salarie envoi le fichier au systeme central
 
-./encrypt.sh prime.txt
-
-
-
+./encrypt.sh prime.txt > prime.enc
 
 
 -- Chiffrement ligne par ligne

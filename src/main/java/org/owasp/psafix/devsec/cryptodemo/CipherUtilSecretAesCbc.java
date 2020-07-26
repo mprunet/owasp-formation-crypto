@@ -26,14 +26,14 @@ public class CipherUtilSecretAesCbc {
 
     @PostConstruct
     public void init() throws Exception {
-        KeyGenerator keygen = KeyGenerator.getInstance("AES");
+/*        KeyGenerator keygen = KeyGenerator.getInstance("AES");
         keygen.init(256, new SecureRandom());
         SecretKey secretKey = keygen.generateKey();
 
 /*        KeyGenerator keygen = KeyGenerator.getInstance(KEY_ALGORITHM);
         keygen.init(128);
         secretKey = keygen.generateKey();*/
-        secretKey = keyStorage.getKey(KeyStorage.AES_CBC_KEY_ALIAS);
+        this.secretKey = keyStorage.getKey(KeyStorage.AES_CBC_KEY_ALIAS);
     }
 
 
